@@ -1,15 +1,19 @@
-<h1 id="date">Days until we move: </h1>
+<h1 id="date"></h1>
 <script>
 window.onload = function() {
-var elem = document.getElementById("date")
+  var elem = document.getElementById("date")
 
-var today = new Date()
-var move = new Date(2022, 5, 11)
+  var today = new Date()
+  var move = new Date(2022, 5, 11)
 
-var one_day=1000*60*60*24
+  var one_day = 1000*60*60*24
 
-var days = Math.ceil((move.getTime()-today.getTime())/(one_day))
+  var days = Math.ceil((move.getTime()-today.getTime())/(one_day))
 
-elem.insertAdjacentText('beforeend', days)
+  if (move > today) {
+    elem.insertAdjacentText('beforeend', 'Days until we move: ' + days)
+  } else {
+    elem.insertAdjacentText('beforeend', 'We moved!')
+  }
 }
 </script>
